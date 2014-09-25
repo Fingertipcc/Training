@@ -26,6 +26,7 @@ class MySqlHelper { // mysql helper
 			$this->err ( mysql_error () );
 		}
 		mysql_query ( "set names " . $dbcharst ); // 设定字符编码 建议使用 utf8
+		return true;
 	}
 	/**
 	 * 执行查询
