@@ -98,11 +98,11 @@ class MySqlHelper { // mysql helper
 		foreach ( $arr as $key => $value ) {
 			$value = mysql_real_escape_string ( $value ); // 转义 防止 sql注入
 			$keyArr [] = "`" . $key . "`";
-			$valueArr [] = "`" . $value . "`";
+			$valueArr [] = "'" . $value . "'";
 		}
 		$keys = implode ( ",", $keyArr );
 		$values = implode ( ",", $valueArr );
-		$sql = "insert into " . $tableN . "(" . $keys . ") values(" . $values . ")"; // 拼接sql语句
+		$sql = "insert into `" . $tableN . "`(" . $keys . ") values(" . $values . ")"; // 拼接sql语句
 		$this->query ( $sql );
 		return mysql_insert_id ();
 	}
@@ -119,10 +119,10 @@ class MySqlHelper { // mysql helper
 	function update($tableN, $arr, $where) {
 		foreach ( $arr as $key => $value ) {
 			$value = mysql_real_escape_string ( $value ); // 转义 防止 sql注入
-			$keyAnadValArr [] = "`" . $key . "`=`" . $value . "`";
+			$keyAnadValArr [] = "`" . $key . "`='" . $value . "'";
 		}
 		$setStr = implode ( ",", $keyAnadValArr );
-		$sql = "update " . $tableN . " set " . $setStr . " where 1=1 and " . $where;
+		$sql = "update `" . $tableN ."` set " . $setStr . " where " . $where;
 		$this->query ( $sql );
 	}
 	/**
@@ -134,7 +134,7 @@ class MySqlHelper { // mysql helper
 	 *        	where 语句
 	 */
 	function delete($tableN, $where) {
-		$sql = "delete from " . $tableN . " where 1=1 and " . $where;
+		$sql = "delete from " . $tableN . " where " . $where;
 		$this->query ( $sql );
 	}
 }
