@@ -1,2 +1,2 @@
 <?php
-$config=array('dbhost'=>'localhost','dbuser'=>'rootZhou','dbpsw'=>'714571611','dbname'=>'test','dbcharst'=>'utf8');
+$config=array('dbhost'=>'10.200.10.90','dbuser'=>'rootZ','dbpsw'=>'8520','dbname'=>'test','dbcharst'=>'utf8');
