@@ -1,5 +1,5 @@
 <?php
 define ( 'APP_DEBUG', TRUE );
-define ( 'BIND_MODULE', 'Admin' );
-define ( 'APP_PATH', './Application/' );
+define ( 'APP_NAME', 'Admin' );
+define ( 'APP_PATH', './Apps/' );
 require_once 'ThinkPHP/ThinkPHP.php';
